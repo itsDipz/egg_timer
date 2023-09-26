@@ -1,11 +1,14 @@
-function drag_dot(){
-    let the_dot = document.querySelector(".scroll_dot")
-    the_dot.addEventListener("drag", (event) => {
-        console.log(event.clientX)
-        console.log(event.clientY)
+function slider(){
+    
+    const numericInput = document.querySelector(".timer_show");
+    const numericSlider = document.getElementById("numeric-slider");
+    window.addEventListener("DOMContentLoaded", () =>{
+        numericSlider.value = 600;
+        numericInput.innerHTML = 6.0;
     })
-    the_dot.addEventListener("dragend", (event) => {
-        
-    })
+    numericSlider.addEventListener("input", () => {
+      numericInput.innerHTML = numericSlider.value / 100;
+      console.log(numericInput.value)
+    });
 }
-drag_dot()
+slider()

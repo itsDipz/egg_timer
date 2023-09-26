@@ -10,27 +10,8 @@
 </head>
 <body>
   <label for="numeric-incrementor">Numeric Incrementor:</label>
-  <input type="number" id="numeric-incrementor" value="0">
-  <input type="range" id="numeric-slider" min="0" max="1200" step="1" value="0">
-  
-  <script>
-    const numericInput = document.getElementById("numeric-incrementor");
-    const numericSlider = document.getElementById("numeric-slider");
-
-    numericSlider.addEventListener("input", () => {
-      numericInput.value = numericSlider.value;
-    });
-
-    numericInput.addEventListener("input", () => {
-      const inputValue = parseInt(numericInput.value);
-      if (inputValue < parseInt(numericSlider.min)) {
-        numericInput.value = numericSlider.min;
-      } else if (inputValue > parseInt(numericSlider.max)) {
-        numericInput.value = numericSlider.max;
-      }
-
-      numericSlider.value = numericInput.value;
-    });
-  </script>
+    <div class="timer_show">600</div>
+  <input type="range" id="numeric-slider" min="0" max="1200" step="1" value="200">
+  <script src="./main.js"></script>
 </body>
 </html>
