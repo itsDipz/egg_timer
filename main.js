@@ -61,7 +61,4 @@ function slider(){
 }
 slider()
 
-const inputString = "3.25";
-const floatValue = parseFloat(inputString);
-console.log(floatValue); // 3.25
 
