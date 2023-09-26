@@ -1,0 +1,11 @@
+- Egg-Timer Main
+    - Timer
+    - Egg image (svg-format)
+    - Stop/Pause functionality
+    - Time progression bar
+
+- Egg-Timer Start Homepage
+    - Timer scroll
+    - Preset Timers for each specific type of boil
+    - Start Button
+    - Timer visualization through a timer bar
