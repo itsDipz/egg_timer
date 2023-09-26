@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Egg timer</h1>
-        <div class="timer_display">
-            
-        </div>
-        <button class="start">Start</button>
-    </div>
+  <label for="numeric-incrementor">Numeric Incrementor:</label>
+  <input type="number" id="numeric-incrementor" value="0">
+  <input type="range" id="numeric-slider" min="0" max="1200" step="1" value="0">
+  
+  <script>
+    const numericInput = document.getElementById("numeric-incrementor");
+    const numericSlider = document.getElementById("numeric-slider");
 
-    <script src="./main.js"></script>
+    numericSlider.addEventListener("input", () => {
+      numericInput.value = numericSlider.value;
+    });
+
+    numericInput.addEventListener("input", () => {
+      const inputValue = parseInt(numericInput.value);
+      if (inputValue < parseInt(numericSlider.min)) {
+        numericInput.value = numericSlider.min;
+      } else if (inputValue > parseInt(numericSlider.max)) {
+        numericInput.value = numericSlider.max;
+      }
+
+      numericSlider.value = numericInput.value;
+    });
+  </script>
 </body>
 </html>
