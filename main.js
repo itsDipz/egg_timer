@@ -1,7 +1,7 @@
 function egg_timer(how_many_minutes){
     let minute_in_miliseconds = 60000;
     let total_miliseconds = (minute_in_miliseconds * how_many_minutes);
-
+    console.log(total_miliseconds)
     
     let seconds = Math.floor(total_miliseconds / 1000);
     let minutes = Math.floor(seconds / 60);
@@ -14,7 +14,16 @@ function egg_timer(how_many_minutes){
         remainingSeconds = seconds % 60;
         console.log(seconds)
 
-        document.querySelector(".timer_display").innerHTML = `${minutes},${remainingSeconds}`
+        document.querySelector(".timer_display").innerHTML = `${minutes}:${remainingSeconds}`
+        function hasTwoDigits(integer) {
+            const integerStr = Math.abs(integer).toString(); // Convert to a string
+            return integerStr.length === 2;
+        }
+
+        if(hasTwoDigits(remainingSeconds) === false){
+            document.querySelector(".timer_display").innerHTML = `${minutes}:0${remainingSeconds}`
+        }
+
         if(seconds === 0){
             console.log("Timer done");
             clearInterval(interval_id)
@@ -31,10 +40,28 @@ function slider(){
         numericInput.innerHTML = 6.0;
     })
     numericSlider.addEventListener("input", () => {
-      numericInput.innerHTML = numericSlider.value / 100;
-      console.log(numericInput.value)
+        numericInput.innerHTML = numericSlider.value / 100;
+        const inputString = numericInput.innerHTML;
+        const floatValue = parseFloat(inputString);
+        numericInput.innerHTML = floatValue// 3.25
+
     });
+    
+    let button = document.querySelector("button");
+    button.addEventListener("click", () => {
+        egg_timer(parseFloat(document.querySelector(".timer_show").innerHTML))
+        document.querySelector(".timer_show").remove();
+        let timer_display = document.createElement("div");
+        timer_display.classList.add("timer_display");
+        document.querySelector(".container").appendChild(timer_display);
+        document.querySelector("input").remove();
+        document.querySelector("button").remove();
+    });
+    
 }
 slider()
 
-egg_timer(3);
+const inputString = "3.25";
+const floatValue = parseFloat(inputString);
+console.log(floatValue); // 3.25
+
