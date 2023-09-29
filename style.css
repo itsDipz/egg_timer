@@ -1,12 +1,47 @@
-.container{
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+:root {
+  --hardboiled: #fedb5f;
+  --mediumsoft: #ffb03a;
+  --runnyyolk: #f88b26;
+}
+
+body {
+  margin: 0;
+}
+
+#eggDisplay {
+  height: 300px;
+  width: 300px;
+  background-image: url(./media/egg.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  place-items: center;
+}
+
+#eggDisplay > * {
+  background-color: red;
+  border: solid 1px black;
+  height: 153px;
+  width: 151px;
+  border-radius: 50%;
+  position: relative;
+  top: 38px;
+}
+
+#yolkColor {
+  transition: background-color 200ms;
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 input {
-    width: 500px;
+  width: 75%;
 }
