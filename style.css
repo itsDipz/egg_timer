@@ -5,13 +5,15 @@
 }
 
 body {
+  color: white;
+  background-color: rgb(77, 75, 75);
   margin: 0;
 }
 
 #eggDisplay {
-  height: 300px;
-  width: 300px;
-  background-image: url(./media/egg.png);
+  height: 180px;
+  width: 180px;
+  background-image: url(./media/Ellipse\ 1.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,13 +22,12 @@ body {
 }
 
 #eggDisplay > * {
-  background-color: red;
-  border: solid 1px black;
-  height: 153px;
-  width: 151px;
+  background-color: #ffb03a;
+  height: 83px;
+  width: 83px;
   border-radius: 50%;
   position: relative;
-  top: 38px;
+  top: 26px;
 }
 
 #yolkColor {
