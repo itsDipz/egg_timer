@@ -6,7 +6,7 @@
 
 body {
   color: white;
-  background-color: rgb(77, 75, 75);
+  background-color: rgb(54, 53, 53);
   margin: 0;
 }
 
@@ -44,5 +44,33 @@ body {
 }
 
 input {
-  width: 75%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 70%;
 }
+
+
+.timer_show{
+  margin-bottom: 50px;
+  font-size: 35px;
+}
+
+
+.start{
+  margin-top: 50px;
+  border: none;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+}
+
+.test{
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  border: 10px solid rgb(0, 110, 235);
+  
+}
+
