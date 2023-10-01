@@ -13,11 +13,40 @@ const colors = [
   "#fed559",
 ];
 
+function init_first_page(){
+  clearInterval(window.localStorage.getItem("interval_id"));
+  document.querySelector(".container").innerHTML = "";
+  document.querySelector(".container").innerHTML = `
+      <div class="timer_show">6:00</div>
+      <div id="eggDisplay">
+        <div id="yolkColor"></div>
+      </div>
+      <div class="default_boil_scroll"></div>
+      <input
+        type="range"
+        id="numeric-slider"
+        min="100"
+        max="1200"
+        step="1"
+        value="200"
+      />
+      <button>Start</button>
+  `;
 
+  slider();
+}
 
 
 function egg_timer(how_many_minutes) {
-
+  if(document.querySelector(".back_to_first_page") === null){
+    let back_to_first_page = document.createElement("div");
+    back_to_first_page.innerHTML = "back"
+    back_to_first_page.classList.add("back_to_first_page");
+    back_to_first_page.addEventListener("click", () => {
+      init_first_page();
+    })
+    document.querySelector(".container").appendChild(back_to_first_page);
+  }
   document.querySelector("#stop_button").removeEventListener("click", start_function1)
 
   let minute_in_miliseconds = 60000;
@@ -80,7 +109,7 @@ function slider() {
   window.addEventListener("DOMContentLoaded", () => {
     console.log("DOm content loaded");
     numericSlider.value = 600;
-    numericInput.innerHTML = 6.0;
+    numericInput.innerHTML = "6:00";
   });
 
   numericSlider.addEventListener("input", () => {
@@ -105,10 +134,21 @@ function start_function1(){
   if(document.querySelector("input") !== null){
     document.querySelector("input").remove();
   }
-  
+
   document.querySelector("button").id = "stop_button";
   document.querySelector("button").innerHTML = "Stop"
-  egg_timer(parseFloat(document.querySelector(".timer_show").innerHTML));
+  console.log(document.querySelector(".timer_show").innerHTML)
+  let timer_value = document.querySelector(".timer_show").innerHTML
+
+  function timeStringToFloat(timeString) {
+    if (timeString.includes(":")) {
+      const [minutes, seconds] = timeString.split(":").map(Number);
+      return minutes + seconds / 60;
+    } else {
+      return parseInt(timeString, 10);
+    }
+  }
+  egg_timer(timeStringToFloat(timer_value));
 }
 
 function stop_function(){
