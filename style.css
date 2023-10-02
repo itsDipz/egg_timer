@@ -11,8 +11,8 @@ body {
 }
 
 #eggDisplay {
-  height: 180px;
-  width: 180px;
+  height: 250px;
+  width: 250px;
   background-image: url(./media/Ellipse\ 1.svg);
   background-size: contain;
   background-position: center;
@@ -23,8 +23,8 @@ body {
 
 #eggDisplay > * {
   background-color: #ffb03a;
-  height: 83px;
-  width: 83px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   position: relative;
   top: 26px;
@@ -52,16 +52,16 @@ input {
 
 .timer_show{
   margin-bottom: 50px;
-  font-size: 35px;
+  font-size: 50px;
 }
 
 
 button{
   margin-top: 50px;
   border: none;
-  border-radius: 100%;
-  width: 70px;
-  height: 70px;
+  border-radius: 15px;
+  width: 200px;
+  height: 60px;
 }
 
 .back_to_first_page{
@@ -76,6 +76,55 @@ button{
   margin-top: 50px;
 }
 
+.scroll_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
 
+.options_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
+.options_container div{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
+.not_selected{
+  font-size: 9px;
+  color: gray;
+}
+
+.selected{
+  color: white;
+  font-size: 15px;
+}
+
+.back_arrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: gainsboro;
+  color: black;
+}
+
+.front_arrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: gainsboro;
+  color: black;
+}

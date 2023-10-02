@@ -1,3 +1,8 @@
+import { create_scroll } from "./utils.js";
+
+
+
+
 const colors = [
   "#f88b26",
   "#f99229",
@@ -169,4 +174,6 @@ function convert_seconds_to_minutes(seconds){
 }
 
 
+
+create_scroll();
 slider();
