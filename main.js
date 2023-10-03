@@ -35,9 +35,10 @@ function init_first_page(){
         step="1"
         value="200"
       />
+      <div class="scroll_container"></div>
       <button>Start</button>
   `;
-
+  create_scroll();
   slider();
 }
 
