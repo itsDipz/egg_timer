@@ -3,14 +3,21 @@
   --mediumsoft: #ffb03a;
   --runnyyolk: #f88b26;
 }
+@font-face {
+  font-family: Anton;
+  src: url("./media/fonts/Anton-Regular.ttf");
+}
 
 body {
   color: white;
-  background-color: rgb(54, 53, 53);
+  background-color: rgb(251, 187, 60);
   margin: 0;
+  font-family: Anton;
+  position: relative;
 }
 
 #eggDisplay {
+  position: relative;
   height: 250px;
   width: 250px;
   background-image: url(./media/Ellipse\ 1.svg);
@@ -32,9 +39,11 @@ body {
 
 #yolkColor {
   transition: background-color 200ms;
+  box-shadow: 20px;
 }
 
 .container {
+  overflow: scroll;
   width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -42,7 +51,15 @@ body {
   align-items: center;
   flex-direction: column;
 }
-
+.second_box{
+  background-color: #fedb5f;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 input {
   margin-top: 40px;
   margin-bottom: 20px;
@@ -50,11 +67,11 @@ input {
 }
 
 
-.timer_show{
+.timer_show {
   margin-bottom: 50px;
-  font-size: 50px;
+  font-size: 70px;
+  text-shadow: 6px 6px black;
 }
-
 
 button{
   margin-top: 50px;
@@ -62,6 +79,8 @@ button{
   border-radius: 15px;
   width: 200px;
   height: 60px;
+  font-size: 25px;
+  box-shadow: 7px 7px black ;
 }
 
 .back_to_first_page{
@@ -98,13 +117,14 @@ button{
 }
 
 .not_selected{
-  font-size: 9px;
-  color: gray;
+  font-size: 18px;
+  text-shadow: 2px 2px black;
+  color: rgb(175, 170, 170);
 }
 
 .selected{
   color: white;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .back_arrow{
@@ -113,9 +133,8 @@ button{
   align-items: center;
   width: 50px;
   height: 50px;
-  border-radius: 100%;
-  background-color: gainsboro;
   color: black;
+  font-size: 45px;
 }
 
 .front_arrow{
@@ -124,7 +143,59 @@ button{
   align-items: center;
   width: 50px;
   height: 50px;
-  border-radius: 100%;
-  background-color: gainsboro;
   color: black;
+  font-size: 45px;
+}
+
+.settings_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  height: fit-content;
+  
+}
+.egg_sizes{
+  display: flex;
+}
+.egg_sizes div {
+  box-shadow: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  width: 70px;
+  height: 40px;
+  font-size: 25px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  color: black;
+  box-shadow: 5px 5px black;
+}
+.egg_type{
+  display: flex;
+}
+
+.egg_type div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  color: black;
+  box-shadow: 5px 5px black;
+}
+
+#selected_size{
+  background-color: rgb(128, 124, 124);
+  color: white;
+}
+
+#selected_type{
+  background-color:  rgb(128, 124, 124);
+  color: white;
 }

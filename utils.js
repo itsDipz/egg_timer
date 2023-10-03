@@ -2,13 +2,13 @@ export function create_scroll(){
     let array_of_defaults = [];
     let scroll_container = document.querySelector(".scroll_container")
     scroll_container.innerHTML = `
-        <div class="back_arrow">back</div>
+        <div class="back_arrow"> <- </div>
         <div class="options_container">
             <div class="hard_boiled">Hard boiled</div>
             <div class="default">Default boiled</div>
             <div class="soft_boiled">Soft boiled</div>
         </div>
-        <div class="front_arrow">front</div>
+        <div class="front_arrow"> -> </div>
     `;
     let hard_boiled = document.querySelector(".hard_boiled");
     let default_boiled = document.querySelector(".default");

@@ -8,21 +8,31 @@
   </head>
   <body>
     <div class="container">
-      <div class="timer_show">6:00</div>
-      <div id="eggDisplay">
-        <div id="yolkColor"></div>
+      
+      <div class="first_box">
+        <p class="timer_show">6:00</p>
+        <div id="eggDisplay">
+          <div id="yolkColor"></div>
+        </div>
+        <div class="default_boil_scroll"></div>
       </div>
-      <div class="default_boil_scroll"></div>
-      <input
-        type="range"
-        id="numeric-slider"
-        min="100"
-        max="1200"
-        step="1"
-        value="600"
-      />
-      <div class="scroll_container"></div>
-      <button>Start</button>
+
+      <div class="second_box">
+        <div class="scroll_container"></div>
+        <div class="settings_container">
+          <div class="egg_sizes">
+            <div class="small" id="selected_size">S</div>
+            <div class="medium">M</div>
+            <div class="large">L</div>
+          </div>
+          <div class="egg_type">
+            <div class="normal_egg" id="selected_type">Normal Egg</div>
+            <div class="eco_egg">Eco egg</div>
+          </div>
+        </div>
+        <button>Start</button>
+      </div>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
