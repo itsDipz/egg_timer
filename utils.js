@@ -4,9 +4,9 @@ export function create_scroll(){
     scroll_container.innerHTML = `
         <div class="back_arrow"> <- </div>
         <div class="options_container">
-            <div class="hard_boiled">Hard boiled</div>
-            <div class="default">Default boiled</div>
-            <div class="soft_boiled">Soft boiled</div>
+            <div class="hard_boiled">Hard</div>
+            <div class="default">Normal</div>
+            <div class="soft_boiled">Soft</div>
         </div>
         <div class="front_arrow"> -> </div>
     `;
@@ -48,19 +48,18 @@ export function create_scroll(){
         for (let index = 0; index < array_of_defaults.length; index++) {
             options_container.appendChild(array_of_defaults[index]);
         }
-
+        console.log(document.querySelector(".selected").innerHTML)
         switch(document.querySelector(".selected").innerHTML){
-            case "Hard boiled":
+            case "Hard":
                 document.querySelector(".timer_show").innerHTML = "11:00";
-                document.querySelector("input").value = 1100;
+                
             break;
-            case "Default boiled":
+            case "Normal":
                 document.querySelector(".timer_show").innerHTML = "6:00";
-                document.querySelector("input").value = 600;
+               
             break;
-            case "Soft boiled":
+            case "Soft":
                 document.querySelector(".timer_show").innerHTML = "2:00";
-                document.querySelector("input").value = 200;
             break;
         }
     })
@@ -95,17 +94,14 @@ export function create_scroll(){
         }
 
         switch(document.querySelector(".selected").innerHTML){
-            case "Hard boiled":
+            case "Hard":
                 document.querySelector(".timer_show").innerHTML = "11:00";
-                document.querySelector("input").value = 1100;
             break;
-            case "Default boiled":
+            case "Normal":
                 document.querySelector(".timer_show").innerHTML = "6:00";
-                document.querySelector("input").value = 600;
             break;
-            case "Soft boiled":
+            case "Soft":
                 document.querySelector(".timer_show").innerHTML = "2:00";
-                document.querySelector("input").value = 200;
             break;
         }
     })

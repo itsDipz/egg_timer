@@ -31,7 +31,7 @@ function init_first_page(){
       <button>Start</button>
   `;
   create_scroll();
-  slider();
+  start();
 }
 
 
@@ -101,27 +101,10 @@ function egg_timer(how_many_minutes) {
 
 
 
-function slider() {
+function start() {
   const numericInput = document.querySelector(".timer_show");
-  const numericSlider = document.getElementById("numeric-slider");
-  window.addEventListener("DOMContentLoaded", () => {
-    console.log("DOm content loaded");
-    numericSlider.value = 600;
-    numericInput.innerHTML = "6:00";
-  });
+  numericInput.innerHTML = "6:00"
 
-  numericSlider.addEventListener("input", () => {
-    console.log("input event");
-
-    const sliderValue = numericSlider.value / 100;
-    const yolk = document.querySelector("#yolkColor");
-    yolk.style.backgroundColor = colors[Math.floor(Math.round(sliderValue))];
-
-    numericInput.innerHTML = numericSlider.value / 100;
-    const inputString = numericInput.innerHTML;
-    const floatValue = parseFloat(inputString);
-    numericInput.innerHTML = floatValue; 
-  });
 
   let button = document.querySelector("button");
   console.log(button)
@@ -129,16 +112,12 @@ function slider() {
 }
 
 function start_function1(){
-  if(document.querySelector("input") !== null){
-    document.querySelector("input").remove();
-  }
   if(document.querySelector(".scroll_container") !== null) {
     document.querySelector(".scroll_container").remove();
   }
   
   document.querySelector("button").id = "stop_button";
   document.querySelector("button").innerHTML = "Stop"
-  console.log(document.querySelector(".timer_show").innerHTML)
   let timer_value = document.querySelector(".timer_show").innerHTML
 
   function timeStringToFloat(timeString) {
@@ -149,6 +128,8 @@ function start_function1(){
       return parseInt(timeString, 10);
     }
   }
+  let test = timeStringToFloat(timer_value)
+  console.log(test);
   egg_timer(timeStringToFloat(timer_value));
 }
 
@@ -172,4 +153,4 @@ function convert_seconds_to_minutes(seconds){
 
 
 create_scroll();
-slider();
+start();
