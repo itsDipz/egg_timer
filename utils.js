@@ -1,3 +1,4 @@
+import { check_settings } from "./main.js";
 export function create_scroll(){
     let array_of_defaults = [];
     let scroll_container = document.querySelector(".scroll_container")
@@ -48,20 +49,7 @@ export function create_scroll(){
         for (let index = 0; index < array_of_defaults.length; index++) {
             options_container.appendChild(array_of_defaults[index]);
         }
-        console.log(document.querySelector(".selected").innerHTML)
-        switch(document.querySelector(".selected").innerHTML){
-            case "Hard":
-                document.querySelector(".timer_show").innerHTML = "11:00";
-                
-            break;
-            case "Normal":
-                document.querySelector(".timer_show").innerHTML = "6:00";
-               
-            break;
-            case "Soft":
-                document.querySelector(".timer_show").innerHTML = "2:00";
-            break;
-        }
+        check_settings();
     })
 
 
@@ -92,17 +80,6 @@ export function create_scroll(){
         for (let index = 0; index < array_of_defaults.length; index++) {
             options_container.appendChild(array_of_defaults[index]);
         }
-
-        switch(document.querySelector(".selected").innerHTML){
-            case "Hard":
-                document.querySelector(".timer_show").innerHTML = "11:00";
-            break;
-            case "Normal":
-                document.querySelector(".timer_show").innerHTML = "6:00";
-            break;
-            case "Soft":
-                document.querySelector(".timer_show").innerHTML = "2:00";
-            break;
-        }
+        check_settings();
     })
 }

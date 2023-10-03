@@ -1,7 +1,8 @@
 import { create_scroll } from "./utils.js";
 
-
-
+window.localStorage.clear();
+window.localStorage.setItem("egg_size", "small")
+console.log(window.localStorage);
 
 const colors = [
   "#f88b26",
@@ -41,6 +42,8 @@ function init_first_page(){
       <button>Start</button>
   `;
   create_scroll();
+  select_options_size();
+  check_settings();
   start();
 }
 
@@ -109,11 +112,98 @@ function egg_timer(how_many_minutes) {
 }
 
 
+function select_options_size(){
+  function remove_all_selected_size(){
+    document.querySelectorAll("#selected_size").forEach((index) =>{
+      index.id = "";
+    })
+  }
+    let small = document.querySelector(".small")
+    let medium = document.querySelector(".medium")
+    let large = document.querySelector(".large")
 
+    small.addEventListener("click", () => {
+      if(window.localStorage.getItem("egg_size") !== null){
+        window.localStorage.removeItem("egg_size")
+      }
+      remove_all_selected_size()
+      window.localStorage.setItem("egg_size", "small")
+      small.id = "selected_size"
+      console.log(window.localStorage)
+      check_settings()
+    })
+
+    medium.addEventListener("click", () => {
+      if(window.localStorage.getItem("egg_size") !== null){
+        window.localStorage.removeItem("egg_size")
+      }
+      remove_all_selected_size()
+      window.localStorage.setItem("egg_size", "medium")
+      medium.id = "selected_size"
+      console.log(window.localStorage)
+      check_settings();
+    })
+
+    large.addEventListener("click", () => {
+      if(window.localStorage.getItem("egg_size") !== null){
+        window.localStorage.removeItem("egg_size")
+      }
+      remove_all_selected_size()
+      window.localStorage.setItem("egg_size", "large")
+      large.id = "selected_size"
+      console.log(window.localStorage)
+      check_settings();
+    })
+}
+
+
+export function check_settings(){
+  let egg_size = window.localStorage.getItem("egg_size");
+  let selected_size = document.querySelector(".selected").innerHTML;
+
+  if(egg_size == "small" && selected_size == "Normal"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "5:00";
+  }
+  if(egg_size == "medium" && selected_size == "Normal"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "6:00";
+  }
+  if(egg_size == "large" && selected_size == "Normal"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "7:00";
+  }
+
+
+  if(egg_size == "small" && selected_size == "Soft"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "3:00";
+  }
+  if(egg_size == "medium" && selected_size == "Soft"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "4:00";
+  }
+  if(egg_size == "large" && selected_size == "Soft"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "5:00";
+  }
+
+
+  if(egg_size == "small" && selected_size == "Hard"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "6:00";
+  }
+  if(egg_size == "medium" && selected_size == "Hard"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "8:00";
+  }
+  if(egg_size == "large" && selected_size == "Hard"){
+    console.log("yes")
+    document.querySelector(".timer_show").innerHTML = "9:00";
+  }
+}
 
 function start() {
-  const numericInput = document.querySelector(".timer_show");
-  numericInput.innerHTML = "6:00"
 
   let button = document.querySelector("button");
   console.log(button)
@@ -166,6 +256,8 @@ function convert_seconds_to_minutes(seconds){
 }
 
 
-
 create_scroll();
+select_options_size();
+check_settings();
 start();
+
