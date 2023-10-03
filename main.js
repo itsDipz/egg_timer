@@ -27,14 +27,6 @@ function init_first_page(){
         <div id="yolkColor"></div>
       </div>
       <div class="default_boil_scroll"></div>
-      <input
-        type="range"
-        id="numeric-slider"
-        min="100"
-        max="1200"
-        step="1"
-        value="200"
-      />
       <div class="scroll_container"></div>
       <button>Start</button>
   `;
