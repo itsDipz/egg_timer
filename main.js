@@ -28,6 +28,16 @@ function init_first_page(){
       </div>
       <div class="default_boil_scroll"></div>
       <div class="scroll_container"></div>
+      <div class="settings_container">
+        <div class="egg_sizes">
+          <div class="small" id="selected_size">S</div>
+          <div class="medium">M</div>
+          <div class="large">L</div>
+        </div>
+        <div class="egg_type">
+          <div class="normal_egg" id="selected_type">Normal Egg</div>
+          <div class="eco_egg">Eco egg</div>
+        </div>
       <button>Start</button>
   `;
   create_scroll();
@@ -105,7 +115,6 @@ function start() {
   const numericInput = document.querySelector(".timer_show");
   numericInput.innerHTML = "6:00"
 
-
   let button = document.querySelector("button");
   console.log(button)
   button.addEventListener("click", start_function1);
@@ -114,6 +123,12 @@ function start() {
 function start_function1(){
   if(document.querySelector(".scroll_container") !== null) {
     document.querySelector(".scroll_container").remove();
+  }
+  if(document.querySelector(".egg_sizes") !== null) {
+    document.querySelector(".egg_sizes").remove();
+  }
+  if(document.querySelector(".egg_type") !== null) {
+    document.querySelector(".egg_type").remove();
   }
   
   document.querySelector("button").id = "stop_button";
