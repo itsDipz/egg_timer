@@ -140,7 +140,10 @@ function start_function1(){
   if(document.querySelector("input") !== null){
     document.querySelector("input").remove();
   }
-
+  if(document.querySelector(".scroll_container") !== null) {
+    document.querySelector(".scroll_container").remove();
+  }
+  
   document.querySelector("button").id = "stop_button";
   document.querySelector("button").innerHTML = "Stop"
   console.log(document.querySelector(".timer_show").innerHTML)
