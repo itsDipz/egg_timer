@@ -111,7 +111,7 @@ function egg_timer(how_many_minutes) {
         ".timer_show"
       ).innerHTML = `${minutes}:0${remainingSeconds}`;
     }
-
+    check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
     if (seconds === 0) {
       console.log("Timer done");
       clearInterval(interval_id);
