@@ -5,13 +5,13 @@ export function create_scroll() {
   let scroll_container = document.querySelector(".scroll_container");
   scroll_container.innerHTML = `
   
-        <div class="back_arrow"> &#8656; </div>
+        <div class="back_arrow"> < </div>
         <div class="options_container">
             <div class="hard_boiled">Hard</div>
             <div class="default">Normal</div>
             <div class="soft_boiled">Soft</div>
         </div>
-        <div class="front_arrow"> &#8658; </div>
+        <div class="front_arrow"> > </div>
     `;
   let hard_boiled = document.querySelector(".hard_boiled");
   let default_boiled = document.querySelector(".default");
