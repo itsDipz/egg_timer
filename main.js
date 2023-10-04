@@ -35,10 +35,6 @@ function init_first_page(){
           <div class="medium">M</div>
           <div class="large">L</div>
         </div>
-        <div class="egg_type">
-          <div class="normal_egg" id="selected_type">Normal Egg</div>
-          <div class="eco_egg">Eco egg</div>
-        </div>
       <button>Start</button>
   `;
   create_scroll();
