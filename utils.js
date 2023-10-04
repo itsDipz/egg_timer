@@ -98,3 +98,20 @@ export function create_scroll() {
     }, 100);
   });
 }
+
+export async function get_egg_facts(id){
+    let body_for_post = {
+      the_id: id,
+    }
+    let post_body = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(body_for_post), 
+    }
+    let respose = await fetch("http://localhost:8000/facts.php", post_body);
+    let resource = await respose.json();
+    document.querySelector(".info_show").innerHTML = `
+      ${resource.data}
+    `;
+    console.log(resource);
+}
