@@ -40,7 +40,25 @@ function init_first_page(){
   create_scroll();
   select_options_size();
   check_settings();
+  check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
   start();
+}
+
+export function check_egg_time_for_color(timer_show_html){
+  let timer_float = timeStringToFloat(timer_show_html);
+  console.log(timer_float);
+
+  if(timer_float == 5){
+    document.querySelector("#yolkColor").style.backgroundColor = colors[5];
+  }
+
+  if(timer_float <= 3){
+    document.querySelector("#yolkColor").style.backgroundColor = colors[1];
+  }
+
+  if(timer_float >= 7){
+    document.querySelector("#yolkColor").style.backgroundColor = colors[9];
+  }
 }
 
 
@@ -127,6 +145,7 @@ function select_options_size(){
       small.id = "selected_size"
       console.log(window.localStorage)
       check_settings()
+      check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
     })
 
     medium.addEventListener("click", () => {
@@ -138,6 +157,7 @@ function select_options_size(){
       medium.id = "selected_size"
       console.log(window.localStorage)
       check_settings();
+      check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
     })
 
     large.addEventListener("click", () => {
@@ -149,6 +169,7 @@ function select_options_size(){
       large.id = "selected_size"
       console.log(window.localStorage)
       check_settings();
+      check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
     })
 }
 
@@ -206,6 +227,16 @@ function start() {
   button.addEventListener("click", start_function1);
 }
 
+
+function timeStringToFloat(timeString) {
+  if (timeString.includes(":")) {
+    const [minutes, seconds] = timeString.split(":").map(Number);
+    return minutes + seconds / 60;
+  } else {
+    return parseInt(timeString, 10);
+  }
+}
+
 function start_function1(){
   if(document.querySelector(".scroll_container") !== null) {
     document.querySelector(".scroll_container").remove();
@@ -221,14 +252,7 @@ function start_function1(){
   document.querySelector("button").innerHTML = "Stop"
   let timer_value = document.querySelector(".timer_show").innerHTML
 
-  function timeStringToFloat(timeString) {
-    if (timeString.includes(":")) {
-      const [minutes, seconds] = timeString.split(":").map(Number);
-      return minutes + seconds / 60;
-    } else {
-      return parseInt(timeString, 10);
-    }
-  }
+  
   let test = timeStringToFloat(timer_value)
   console.log(test);
   egg_timer(timeStringToFloat(timer_value));
@@ -244,16 +268,9 @@ function stop_function(){
   document.querySelector("button").addEventListener("click", start_function1)
 }
 
-function convert_seconds_to_minutes(seconds){
-  let minutes = Math.floor(seconds / 60);
-  let remainingSeconds = seconds % 60;
-  let the_return_minutes = parseFloat(`${minutes}.${remainingSeconds}`);
-  return the_return_minutes;
-}
-
-
 create_scroll();
 select_options_size();
 check_settings();
+check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
 start();
 

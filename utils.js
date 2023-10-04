@@ -1,4 +1,5 @@
 import { check_settings } from "./main.js";
+import { check_egg_time_for_color } from "./main.js";
 export function create_scroll() {
   let array_of_defaults = [];
   let scroll_container = document.querySelector(".scroll_container");
@@ -56,6 +57,7 @@ export function create_scroll() {
         options_container.appendChild(array_of_defaults[index]);
       }
       check_settings();
+      check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
     }, 100);
   });
 
@@ -92,6 +94,7 @@ export function create_scroll() {
         options_container.appendChild(array_of_defaults[index]);
       }
       check_settings();
+      check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
     }, 100);
   });
 }
