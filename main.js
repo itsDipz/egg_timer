@@ -1,4 +1,4 @@
-import { create_scroll } from "./utils.js";
+import { create_scroll, get_egg_facts } from "./utils.js";
 
 window.localStorage.clear();
 window.localStorage.setItem("egg_size", "small");
@@ -20,7 +20,12 @@ const colors = [
 ];
 
 function init_first_page() {
-  clearInterval(window.localStorage.getItem("interval_id"));
+  let interval_id = window.localStorage.getItem("interval_id");
+  let egg_fact_interval_id = window.localStorage.getItem(
+    "egg_fact_interval_id"
+  );
+  clearInterval(interval_id);
+  clearInterval(egg_fact_interval_id);
   document.querySelector(".container").innerHTML = "";
   document.querySelector(".container").innerHTML = `
       <div class="timer_show">6:00</div>
@@ -64,7 +69,7 @@ export function check_egg_time_for_color(timer_show_html) {
 function egg_timer(how_many_minutes) {
   if (document.querySelector(".back_to_first_page") === null) {
     let back_to_first_page = document.createElement("div");
-    back_to_first_page.innerHTML = "back";
+    back_to_first_page.innerHTML = "Back";
     back_to_first_page.classList.add("back_to_first_page");
     back_to_first_page.addEventListener("click", () => {
       init_first_page();
@@ -85,11 +90,37 @@ function egg_timer(how_many_minutes) {
 
   let stop_button = document.querySelector("#stop_button");
 
+  function start_egg_facts() {
+    let egg_fact_incrementor_id_num = 1;
+    let interval_egg_fact_id = setInterval(() => {
+      egg_fact_incrementor_id_num++;
+      get_egg_facts(egg_fact_incrementor_id_num);
+      if (window.localStorage.getItem("egg_fact_id" !== null)) {
+        window.localStorage.removeItem("egg_fact_id");
+        window.localStorage.setItem("egg_fact_id", egg_fact_incrementor_id_num);
+      } else {
+        window.localStorage.setItem("egg_fact_id", egg_fact_incrementor_id_num);
+      }
+
+      if (window.localStorage.getItem("egg_fact_id") == 8) {
+        console.log("yes");
+        window.localStorage.removeItem("egg_fact_id");
+        egg_fact_incrementor_id_num = 1;
+        clearInterval(interval_egg_fact_id);
+        start_egg_facts();
+      }
+    }, 8000);
+    window.localStorage.setItem("egg_fact_interval_id", interval_egg_fact_id);
+  }
+
+  start_egg_facts(); //visar egg facts per 8:e sekund
+
   let interval_id = setInterval(() => {
     total_miliseconds = total_miliseconds - 1000;
     seconds = Math.floor(total_miliseconds / 1000);
     minutes = Math.floor(seconds / 60);
     remainingSeconds = seconds % 60;
+
     console.log(seconds);
     if (window.localStorage.getItem("seconds") !== null) {
       window.localStorage.removeItem("seconds");
@@ -253,7 +284,11 @@ function start_function1() {
 
 function stop_function() {
   let interval_id = window.localStorage.getItem("interval_id");
+  let egg_fact_interval_id = window.localStorage.getItem(
+    "egg_fact_interval_id"
+  );
   clearInterval(interval_id);
+  clearInterval(egg_fact_interval_id);
   window.localStorage.clear();
   document
     .querySelector("#stop_button")

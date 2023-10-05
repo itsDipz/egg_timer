@@ -5,13 +5,13 @@ export function create_scroll() {
   let scroll_container = document.querySelector(".scroll_container");
   scroll_container.innerHTML = `
   
-        <div class="back_arrow"> &#8656; </div>
+        <div class="back_arrow"> < </div>
         <div class="options_container">
             <div class="hard_boiled">Hard</div>
             <div class="default">Normal</div>
             <div class="soft_boiled">Soft</div>
         </div>
-        <div class="front_arrow"> &#8658; </div>
+        <div class="front_arrow"> > </div>
     `;
   let hard_boiled = document.querySelector(".hard_boiled");
   let default_boiled = document.querySelector(".default");
@@ -97,4 +97,21 @@ export function create_scroll() {
       check_egg_time_for_color(document.querySelector(".timer_show").innerHTML);
     }, 100);
   });
+}
+
+export async function get_egg_facts(id){
+    let body_for_post = {
+      the_id: id,
+    }
+    let post_body = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(body_for_post), 
+    }
+    let respose = await fetch("http://localhost:8000/facts.php", post_body);
+    let resource = await respose.json();
+    document.querySelector(".info_show").innerHTML = `
+      ${resource.data}
+    `;
+    console.log(resource);
 }
