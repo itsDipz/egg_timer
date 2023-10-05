@@ -38,9 +38,54 @@ body {
   align-items: center;
   margin-bottom: 20px;
   background-repeat: no-repeat;
+  animation-duration: 2s;
+  animation-fill-mode: backwards;
+  transform-origin: bottom;
 }
 
-#yolkColor{
+@keyframes clockShake {
+  0% {
+    transform: rotate(16deg);
+  }
+
+  10% {
+    transform: rotate(-16deg);
+  }
+  20% {
+    transform: rotate(16deg);
+  }
+
+  30% {
+    transform: rotate(-16deg);
+  }
+  40% {
+    transform: rotate(16deg);
+  }
+
+  50% {
+    transform: rotate(-16deg);
+  }
+  60% {
+    transform: rotate(16deg);
+  }
+
+  70% {
+    transform: rotate(-16deg);
+  }
+  80% {
+    transform: rotate(16deg);
+  }
+
+  90% {
+    transform: rotate(-16deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#yolkColor {
   margin-top: 30px;
   width: 50px;
   height: 50px;
@@ -95,7 +140,6 @@ body {
 .front_arrow:hover,
 .back_arrow:hover {
   cursor: pointer;
-  
 }
 
 .not_selected {
