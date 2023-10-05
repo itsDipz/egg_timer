@@ -39,6 +39,9 @@ body {
   align-items: center;
   margin-bottom: 20px;
   background-repeat: no-repeat;
+  animation-duration: 2s;
+  animation-fill-mode: backwards;
+  transform-origin: bottom;
 }
 
 #yolkColor{
@@ -214,5 +217,13 @@ button {
   font-size: 25px;
   margin-top: 30px;
   color: rgb(255, 255, 255);
+}
+
+/* This is for the egg fact the info above is something else*/
+.info_show{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 25px;
 }
 
