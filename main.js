@@ -1,4 +1,4 @@
-import { create_scroll, get_egg_facts } from "./utils.js";
+import { create_scroll } from "./utils.js";
 
 window.localStorage.clear();
 window.localStorage.setItem("egg_size", "small");
@@ -90,30 +90,6 @@ function egg_timer(how_many_minutes) {
 
   let stop_button = document.querySelector("#stop_button");
 
-  function start_egg_facts() {
-    let egg_fact_incrementor_id_num = 1;
-    let interval_egg_fact_id = setInterval(() => {
-      egg_fact_incrementor_id_num++;
-      get_egg_facts(egg_fact_incrementor_id_num);
-      if (window.localStorage.getItem("egg_fact_id" !== null)) {
-        window.localStorage.removeItem("egg_fact_id");
-        window.localStorage.setItem("egg_fact_id", egg_fact_incrementor_id_num);
-      } else {
-        window.localStorage.setItem("egg_fact_id", egg_fact_incrementor_id_num);
-      }
-
-      if (window.localStorage.getItem("egg_fact_id") == 8) {
-        console.log("yes");
-        window.localStorage.removeItem("egg_fact_id");
-        egg_fact_incrementor_id_num = 1;
-        clearInterval(interval_egg_fact_id);
-        start_egg_facts();
-      }
-    }, 8000);
-    window.localStorage.setItem("egg_fact_interval_id", interval_egg_fact_id);
-  }
-
-  start_egg_facts(); //visar egg facts per 8:e sekund
 
   let interval_id = setInterval(() => {
     total_miliseconds = total_miliseconds - 1000;
