@@ -90,12 +90,24 @@ function egg_timer(how_many_minutes) {
 
   let stop_button = document.querySelector("#stop_button");
 
-
   let interval_id = setInterval(() => {
     total_miliseconds = total_miliseconds - 1000;
     seconds = Math.floor(total_miliseconds / 1000);
     minutes = Math.floor(seconds / 60);
     remainingSeconds = seconds % 60;
+
+    if (seconds !== 0) {
+      document.getElementById("eggDisplay").style.transform = "rotate(20deg)";
+
+      setTimeout(() => {
+        document.getElementById("eggDisplay").style.transform =
+          "rotate(-20deg)";
+
+        setTimeout(() => {
+          document.getElementById("eggDisplay").style.transform = "";
+        }, 100);
+      }, 100);
+    }
 
     console.log(seconds);
     if (window.localStorage.getItem("seconds") !== null) {

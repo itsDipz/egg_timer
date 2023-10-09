@@ -38,9 +38,10 @@ body {
   align-items: center;
   margin-bottom: 20px;
   background-repeat: no-repeat;
+  transition: transform 200ms;
 }
 
-#yolkColor{
+#yolkColor {
   margin-top: 90px;
   width: 120px;
   height: 120px;
@@ -104,7 +105,7 @@ body {
   text-align: center;
   color: rgb(255, 248, 248);
   font-size: 20px;
-  
+
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
@@ -191,7 +192,7 @@ button {
   color: white;
 }
 
-.back_to_first_page{
+.back_to_first_page {
   font-size: 25px;
   width: 100px;
   height: 50px;
@@ -202,10 +203,10 @@ button {
   align-items: center;
   margin-top: 40px;
   box-shadow: 8px 8px black;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.info{
+.info {
   width: 80%;
   display: flex;
   justify-content: flex-start;
@@ -213,4 +214,3 @@ button {
   margin-top: 30px;
   color: rgb(255, 255, 255);
 }
-
