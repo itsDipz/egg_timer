@@ -1,6 +1,4 @@
-import { check_settings } from "./main.js";
-import { check_egg_time_for_color } from "./main.js";
-export function create_scroll() {
+function create_scroll() {
   let array_of_defaults = [];
   let scroll_container = document.querySelector(".scroll_container");
   scroll_container.innerHTML = `
@@ -98,4 +96,3 @@ export function create_scroll() {
     }, 100);
   });
 }
-

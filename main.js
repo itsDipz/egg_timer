@@ -1,5 +1,3 @@
-import { create_scroll } from "./utils.js";
-
 window.localStorage.clear();
 window.localStorage.setItem("egg_size", "small");
 console.log(window.localStorage);
@@ -49,7 +47,7 @@ function init_first_page() {
   start();
 }
 
-export function check_egg_time_for_color(timer_show_html) {
+function check_egg_time_for_color(timer_show_html) {
   let timer_float = timeStringToFloat(timer_show_html);
   console.log(timer_float);
 
@@ -191,7 +189,7 @@ function select_options_size() {
   });
 }
 
-export function check_settings() {
+function check_settings() {
   let egg_size = window.localStorage.getItem("egg_size");
   let selected_size = document.querySelector(".selected").innerHTML;
 
